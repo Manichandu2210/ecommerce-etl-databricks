@@ -1,68 +1,3 @@
-# Ecommerce Medallion Data Pipeline (Databricks)
-
-End-to-end e-commerce data engineering project built on Databricks, using the **Medallion Architecture** (Bronze → Silver → Gold) to ingest, clean, model, and analyze 3 months of e-commerce transaction data — covering orders, customers, products, brands, and calendar/date dimensions — with a fully interactive SQL dashboard on top.
-
----
-
-## 📌 Project Overview
-
-Raw e-commerce data (orders, customers, products, brands, dates) is ingested and progressively refined through three layers:
-
-- **Bronze** – Raw data ingestion, minimal transformation, source-of-truth snapshot
-- **Silver** – Cleaned, validated, deduplicated, and conformed data (fact + dimension staging)
-- **Gold** – Final star-schema model (fact + dimension tables) ready for analytics and BI consumption
-
-The Gold layer feeds a SQL dashboard built directly in Databricks for business-facing insights.
-
----
-
-## 🏗️ Architecture
-
-```
-Raw Source Data
-      │
-      ▼
- ┌──────────┐      ┌──────────┐      ┌──────────┐
- │  BRONZE  │ ───▶ │  SILVER  │ ───▶ │   GOLD   │ ───▶  Dashboard
- │  (raw)   │      │ (clean)  │      │ (star     │
- │          │      │          │      │  schema)  │
- └──────────┘      └──────────┘      └──────────┘
-```
-
-**Star Schema (Gold Layer):**
-
-```
-                dim_date
-                    │
-dim_customer ── fact_transactions_denorm ── dim_product
-                    │
-                dim_brand
-```
-
-Fact table: `fact_transactions_denorm`
-Dimension tables: `dim_date`, `dim_customer`, `dim_product`, `dim_brand`
-
----
-
-## 📂 Repository Structure
-
-```
-ecommerce-medallion-pipeline/
-├── Bronze/                  # Raw data ingestion notebooks
-├── Silver/                  # Cleaning, deduplication, conformance
-│   ├── 1DimSilver.ipynb
-│   └── 1FactSilver.ipynb
-├── Gold/                    # Final fact/dimension star schema
-│   ├── 1DimGold.ipynb
-│   └── 1FactBronze.ipynb
-├── Catalogue Setup/          # Unity Catalog / schema setup scripts
-│   └── catalogueSetup.ipynb
-├── Analysis part/             # Dashboard queries & analysis notebooks
-├── docs/
-│   └── dashboard_screenshots/  # Dashboard preview images
-└── README.md
-```
-
 ---
 
 ## 🛠️ Tech Stack
@@ -85,9 +20,9 @@ Built directly in Databricks SQL, the dashboard is interactive with global filte
 | **Revenue Trend by Month** | Line chart tracking revenue across the 3-month period |
 | **Revenue Heatmap by Day & Hour** | Heatmap showing peak transaction times by day of week and hour of day |
 
-![Dashboard Screenshot](docs/dashboard_screenshots/ecommerce_analysis_dashboard.png)
+![Dashboard Screenshot](docs/dashboard_screenshots/Clean%20Dashboard.png)
 
-*(Add your dashboard screenshots to `docs/dashboard_screenshots/Clean Dashboard.png` and update the path above)*
+*Built in Databricks SQL Dashboards, with global filters on `category_name` and `transaction_date` applied across all visuals.*
 
 ---
 
