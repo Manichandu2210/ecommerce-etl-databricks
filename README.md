@@ -87,7 +87,7 @@ Built directly in Databricks SQL, the dashboard is interactive with global filte
 
 ![Dashboard Screenshot](docs/dashboard_screenshots/ecommerce_analysis_dashboard.png)
 
-*(Add your dashboard screenshots to `docs/dashboard_screenshots/` and update the path above)*
+*(Add your dashboard screenshots to `docs/dashboard_screenshots/Clean Dashboard.png` and update the path above)*
 
 ---
 
