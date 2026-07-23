@@ -85,7 +85,7 @@ Built directly in Databricks SQL, the dashboard is interactive with global filte
 | **Revenue Trend by Month** | Line chart tracking revenue across the 3-month period |
 | **Revenue Heatmap by Day & Hour** | Heatmap showing peak transaction times by day of week and hour of day |
 
-![Dashboard Screenshot](docs/dashboard_screenshots/Clean Dashboard.png)
+![Dashboard Screenshot](docs/dashboard_screenshots/ecommerce_analysis_dashboard.png)
 
 *(Add your dashboard screenshots to `docs/dashboard_screenshots/` and update the path above)*
 
